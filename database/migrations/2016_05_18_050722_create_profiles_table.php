@@ -16,6 +16,7 @@ class CreateProfilesTable extends Migration
             $table->engine = 'InnoDB'; //tiene que usar innoDB para que se puedan hacer relaciones
             
             $table->increments('id');
+            $table->integer('carnet');
             $table->string('nombre',100);
             $table->string('apP',60);
             $table->string('apM',60)->nullable();

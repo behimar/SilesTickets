@@ -22,7 +22,8 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-
+    protected $redirectTo = '/';
+    protected $username = 'name';
     /**
      * Create a new authentication controller instance.
      *
@@ -60,6 +61,17 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'type'  => 'usuario',
         ]);
+    }
+
+    public function loginPath()
+    {
+        return route('login');
+    }
+
+    public function redirectPath()
+    {
+        return route('home');
     }
 }
