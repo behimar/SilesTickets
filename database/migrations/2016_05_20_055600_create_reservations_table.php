@@ -20,6 +20,7 @@ class CreateReservationsTable extends Migration
             $table->integer('event_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
+            
             /** relacion con tabla users*/
             $table->foreign('user_id')
                 ->references('id')->on('users')

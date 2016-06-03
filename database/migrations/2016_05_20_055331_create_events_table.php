@@ -20,7 +20,13 @@ class CreateEventsTable extends Migration
             $table->dateTime('fecha_event');
             $table->text('descripccion');
             $table->integer('numEntradas');
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('user_id')
+                ->references('id')->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
             
         });
     }

@@ -35,16 +35,21 @@ Route::get('home',[
     'uses'  => 'HomeController@getIndex',
     'as'    => 'home'
 ]);
-Route::get('perfil-nuevo',[
+/*PERFIL DE USUARIO*/
+Route::get('perfil/nuevo',[
     'uses'  => 'ProfileController@create',
     'as'    => 'create'
 ]);
-Route::get('perfil-{id}',[
+Route::post('perfil/nuevo',[
+    'uses'  => 'ProfileController@store',
+    'as'    => 'create'
+]);
+Route::get('perfil/{id}',[
     'uses'  => 'ProfileController@show',
     'as'    => 'indexPerfil'
 ]);
 
-/*ADMINISTRADOR*/
+/**ADMINISTRADOR*/
 Route::get('users',[
     'uses'  => 'UsersAdminController@index',
     'as'    => 'listUsers'
@@ -66,7 +71,43 @@ Route::post('eventos',[
     'uses'  => 'EventController@store',
     'as'    => 'listEvents'
 ]);
-
+/*localidades */
+Route::get('evento/localidades',[
+    'uses'  => 'LocationController@index',
+    'as'    => 'localidades'
+]);
+Route::post('evento/localidades',[
+    'uses'  => 'LocationController@store',
+    'as'    => 'localidades'
+]);
+Route::get('/sii',function () {
+    $user = \App\User::find(1);
+    return $user;
+});
+Route::get('/si',function (){
+    $event = \App\Event::find(1);
+        $locali = new \App\Location();
+        $locali->localidad = 'Recta';
+        $locali->cantidad = '5000';
+        $locali->precio = '80';
+    $event->location()->save($locali);
+        $locali = new \App\Location();
+        $locali->localidad = 'Curva Norte';
+        $locali->cantidad = '5000';
+        $locali->precio = '50';
+    $event->location()->save($locali);
+    return "registrado";
+    /*
+    $events = \App\Event::find(3)->location;
+    if ($events == null )
+    {
+        return "no";
+    }
+    return $events;
+    */
+    //$profile = \App\User::find(1)->Profile;
+    //return $profile;
+});
 
 Route::get('/wel', function () {
     return view('layouts.panel');

@@ -16,9 +16,9 @@ class CreateLocationsTable extends Migration
             $table->engine = "InnoDB";
             
             $table->increments('id');
-            $table->string('localidad',40);
-            $table->tinyInteger('active');
+            $table->enum('localidad',['Curva Norte', 'Curva Sur', 'General', 'Preferencia', 'Butacas', 'Palco']);
             $table->integer('cantidad');
+            $table->integer('precio');
             $table->integer('event_id')->unsigned();
             $table->timestamps();
             /** relacion con tabla events*/

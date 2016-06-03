@@ -26,7 +26,7 @@ class HomeController extends Controller
         {
             return view('vendedor.inicio');
         }
-        elseif ($user == 'usuario')
+        elseif ($user == 'cliente')
         {
             return "olaaaa";
         }

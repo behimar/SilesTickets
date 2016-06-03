@@ -17,7 +17,7 @@
                 <a href="{{route('listEvents')}}">Lista de Eventos</a>
             </li>
             <li>
-                <a href="#">Localidades</a>
+                <a href="{{route('localidades')}}">Localidades</a>
             </li>
         </ul>
     </li>

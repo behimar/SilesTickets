@@ -36,18 +36,17 @@
                         <option value="">Elija el tipo de usuario</option>
                         <option value="administrador">Administrador</option>
                         <option value="vendedor">Vendedor</option>
-                        <option value="usuario">Usuario</option>
+                        <option value="cliente">Cliente</option>
                     </select>
                 </div>
             </div>
             <div class="col-md-9 col-md-offset-3">
                 <div class="col-md-3">
-                    <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+                    <a href="{{route('home')}}" type="button" class="btn btn-default btn-block">Volver</a>
                 </div>
                 <div class="col-md-3">
-                    <a href="{{route('home')}}" type="button" class="btn btn-default ">Volver</a>
+                    <button type="submit" class="btn btn-primary btn-block">Guardar</button>
                 </div>
-
             </div>
 
         </form>

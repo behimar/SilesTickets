@@ -13,7 +13,7 @@ class UserTableSeeder extends Seeder
     {
         $this->crearAdministrador();
         $this->crearVendedor();
-        $this->crearUsuario();
+        $this->crearCliente();
         //$this->crearInvitado();
     }
 
@@ -37,14 +37,14 @@ class UserTableSeeder extends Seeder
             'type'      =>'vendedor'
         ]);
     }
-    public function crearUsuario()
+    public function crearCliente()
     {
         factory(App\User::class)->create([
             'id'        =>'0000003',
-            'name'      =>'usuario',
-            'email'     =>'usuario@siles.bo',
-            'password'  =>bcrypt('usuario'),
-            'type'      =>'usuario'
+            'name'      =>'cliente',
+            'email'     =>'cliente@siles.bo',
+            'password'  =>bcrypt('cliente'),
+            'type'      =>'cliente'
         ]);
     }
 }

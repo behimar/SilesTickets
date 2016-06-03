@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password', 60);
-            $table->enum('type', ['administrador','vendedor','usuario','invitado'])->default('usuario');
+            $table->enum('type', ['administrador','vendedor','cliente'])->default('cliente');
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

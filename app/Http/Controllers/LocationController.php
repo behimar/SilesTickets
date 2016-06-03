@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Location;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Session;
 
-class EventController extends Controller
+class LocationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,8 +19,7 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::all();
-        
-        return view('admin.eventos',compact('events'));
+        return view('admin.localidades_new',compact('events'));
     }
 
     /**
@@ -41,16 +40,27 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $event = new Event([
-            'titulo'        => $request['titulo'],
-            'fecha_event'   => $request['fecha_event'],
-            'descripccion'   => $request['descripccion'],
-            'numEntradas'   => $request['numEntradas'],
-            'user_id'   => $request['id'],
+        /**
+        $event = \App\Event::find(1);
+        $locali = new \App\Location();
+        $locali->localidad = 'Recta';
+        $locali->cantidad = '5000';
+        $locali->precio = '80';
+        $event->location()->save($locali);
+        $locali = new \App\Location();
+        $locali->localidad = 'Curva Norte';
+        $locali->cantidad = '5000';
+        $locali->precio = '50';
+        $event->location()->save($locali);
+        */
+        $event = Event::find($request['id']);
+        $localidad = new Location([
+            'localidad' => $request['localidad'],
+            'cantidad' => $request['cantidad'],
+            'precio' => $request['precio'],
         ]);
-        $event->save();
-        Session::flash('message','Evento Creado Correctamente');
-        return redirect()->route('listEvents');
+        $event->location()->save($localidad);
+        return redirect()->route('localidades');
     }
 
     /**

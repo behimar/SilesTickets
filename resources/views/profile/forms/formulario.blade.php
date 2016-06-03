@@ -23,14 +23,14 @@
 <div class="form-group has-feedback">
     <label for="materno" class="col-md-3">Apellido Materno</label>
     <div class="col-lg-9">
-        <input type="text" class="form-control" placeholder="Apellido Materno" name="apP" id="paterno" required>
+        <input type="text" class="form-control" placeholder="Apellido Materno" name="apM" id="materno" required>
         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
     </div>
 </div>
 <div class="form-group has-feedback">
     <label for="phone" class="col-md-3">Telefono</label>
     <div class="col-lg-9">
-        <input type="text" class="form-control" placeholder="telefono" name="Telefono" id="phone" required>
+        <input type="text" class="form-control" placeholder="telefono" name="telefono" id="phone" required>
         <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
     </div>
 </div>

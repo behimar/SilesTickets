@@ -13,9 +13,9 @@
                     <h4 class="modal-title" id="myModalLabel">Evento Nuevo</h4>
                     <img src=""class="t" alt="">
                 </div>
-                <form action="{{route('listEvents')}}" method="post" data-toggle="validator">
+                <form action="{{route('listEvents',['id' => Auth::User()->id])}}" method="post" data-toggle="validator">
                     <div class="modal-body">
-                        @include('vendedor.forms.evento')
+                        @include('admin.forms.evento')
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
