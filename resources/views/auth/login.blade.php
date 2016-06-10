@@ -76,6 +76,8 @@
         <!-- /.container -->
     </nav>
     <div id="page-wrapper">
+        <h3 class="text-center">Sistema de Venta de entradas <img src="../images/siles-mini-logo.png" class="t" alt="" width=""></h3>
+
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -88,21 +90,21 @@
                 <div class="item active">
                     <img src="../images/image-01.jpg" alt="" class="center">
                     <div class="carousel-caption">
-                        <h3><img src="../images/logo.png" alt=""></h3>
+
                         <p></p>
                     </div>
                 </div>
                 <div class="item">
                     <img src="../images/image-04.png" alt="" class="center">
                     <div class="carousel-caption">
-                        <h3><img src="../images/logo.png" alt=""></h3>
+
                         <p></p>
                     </div>
                 </div>
                 <div class="item">
                     <img src="../images/image-05.png" alt="" class="center">
                     <div class="carousel-caption">
-                        <h3><img src="../images/logo.png" alt=""></h3>
+
                         <p></p>
                     </div>
                 </div>
@@ -120,22 +122,27 @@
         <div class="container">
             <br>
             <br>
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-6">
-                    <div class="thumbnail">
-                        <img src="../images/portfolio1.jpg" alt="" class="img-responsive">
-                        <h4>Bolivar Vs The Strongest</h4>
-                        <p>Clasico paceño a jugarse por la 3ra fecha del torneo clausura</p>
+
+            @foreach($events as $event)
+                <div class="row">
+                    <div class="jumbotron">
+                        <div class="container">
+                            <div class="col-md-6">
+                                <img src="../images/default.png" alt="" class="img-responsive" width="200">
+                            </div>
+                            <div class="col-md-6">
+                                <h4>{{$event->titulo}}</h4>
+                                <p>{{$event->descripccion}}</p>
+                                <p>Fecha del Partido:<strong>{{$event->fecha_event}} </strong></p>
+                                <a href="" class="btn btn-info btn-lg">Ver más...</a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6 col-md-6">
-                    <div class="thumbnail">
-                        <img src="../images/portfolio2.jpg" alt="" class="img-responsive">
-                        <h4>Bolivia Vs Argentina</h4>
-                        <p>Amistoso por previo a las eliminatorias Rusia 2018</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
+            {!! $events->render() !!}
         </div>
     </div>
     <div class="container">

@@ -17,7 +17,7 @@ class CreateTicketsTable extends Migration
             
             $table->increments('id');
             //$table->integer('user_id')->unsigned();
-            //$table->integer('event_id')->unsigned();
+            $table->integer('event_id')->unsigned();
             $table->timestamps();
 
             /** relacion con tabla users*/
@@ -26,10 +26,10 @@ class CreateTicketsTable extends Migration
                 ->onDelete('cascade')
                 ->onUpdate('cascade');*/
             /** relacion con tabla events*/
-            /*$table->foreign('event_id')
+            $table->foreign('event_id')
                 ->references('id')->on('events')
                 ->onDelete('cascade')
-                ->onUpdate('cascade');*/
+                ->onUpdate('cascade');
         });
     }
 
