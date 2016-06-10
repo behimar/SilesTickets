@@ -13,7 +13,8 @@
                     <h4 class="modal-title" id="myModalLabel">Evento Nuevo</h4>
                     <img src=""class="t" alt="">
                 </div>
-                <form action="{{route('listEvents',['id' => Auth::User()->id])}}" method="post" data-toggle="validator">
+                <form action="{{route('listEvents',['id' => Auth::User()->id])}}" method="post" data-toggle="validator" >
+                    {{-- {!! Form::open(['route' => ['director.formCalifCursante','id' => Auth::User()->id], 'method' => 'POST', 'data-toggle'=> 'validator','files' => true ])!!} --}}
                     <div class="modal-body">
                         @include('admin.forms.evento')
                     </div>
@@ -21,7 +22,8 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Crear Evento</button>
                     </div>
-                </form>
+                    {{--   {!! Form::close() !!}  --}}
+                    {</form>
             </div>
         </div>
     </div>
@@ -31,29 +33,27 @@
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
-                <tr>
-                    <th>Titulo</th>
-                    <th>Fecha de realización</th>
-                    <th>Descripción</th>
-                    <th>N° Localidades</th>
-                    <th colspan="2" class="text-center">Acciones</th>
-                </tr>
+            <tr>
+                <th>Titulo</th>
+                <th>Fecha de realización</th>
+                <th>Descripción</th>
+                <th colspan="2" class="text-center">Acciones</th>
+            </tr>
             </thead>
             <tbody>
-                @foreach( $events as $event)
-                    <tr>
-                        <td>{{$event->titulo}}</td>
-                        <td>{{$event->fecha_event}}</td>
-                        <td>{{$event->descripccion}}</td>
-                        <td>{{$event->numEntradas}}</td>
-                        <td>
-                            <a href="" class="btn btn-success">Actualizar</a>
-                        </td>
-                        <td>
-                            <a href="" class="btn btn-danger">Eliminar</a>
-                        </td>
-                    </tr>
-                @endforeach
+            @foreach( $events as $event)
+                <tr>
+                    <td>{{$event->titulo}}</td>
+                    <td>{{$event->fecha_event}}</td>
+                    <td>{{$event->descripccion}}</td>
+                    <td>
+                        <a href="" class="btn btn-success">Actualizar</a>
+                    </td>
+                    <td>
+                        <a href="" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            @endforeach
             </tbody>
         </table>
     </div>

@@ -8,8 +8,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Iniciar Sesión</h4>
-                    <img src=""class="t" alt="">
+                    <h4 class="modal-title" id="myModalLabel">Iniciar Sesión en <img src="../images/siles-mini-logo.png" class="t" alt="" width="100"> </h4>
                 </div>
                 <form action="{{route('login')}}" method="POST">
                     {!! csrf_field() !!}
@@ -21,7 +20,6 @@
                         <button type="submit" class="btn btn-primary">Ingresar</button>
                     </div>
                 </form>
-
             </div>
         </div>
     </div>
@@ -32,7 +30,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Registrarse</h4>
+                    <h4 class="modal-title" id="myModalLabel">Registrarse en <img src="../images/siles-mini-logo.png" class="t" alt="" width="100"></h4>
                     <img src=""class="t" alt="">
                 </div>
                 <form action="{{route('register')}}" method="POST" data-toggle="validator">
@@ -65,7 +63,6 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
-
                         <a href="" class="btn  " data-toggle="modal" data-target="#login">Ingresar</a>
                     </li>
                     <li>
@@ -78,7 +75,6 @@
         </div>
         <!-- /.container -->
     </nav>
-
     <div id="page-wrapper">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
@@ -86,9 +82,7 @@
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                 <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-
             </ol>
-
             <!-- Wrapper for slides -->
             <div class="carousel-inner" role="listbox">
                 <div class="item active">
@@ -112,9 +106,7 @@
                         <p></p>
                     </div>
                 </div>
-
             </div>
-
             <!-- Controls -->
             <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
                 <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
@@ -124,11 +116,9 @@
                 <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
                 <span class="sr-only">Next</span>
             </a>
-
         </div>
         <div class="container">
             <br>
-
             <br>
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-6">
@@ -147,12 +137,9 @@
                 </div>
             </div>
         </div>
-
     </div>
     <div class="container">
-
         <hr>
-
         <!-- Footer -->
         <footer>
             <div class="row">
@@ -175,14 +162,11 @@
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
                             <h4>Ver más?</h4>
-
                             <a href="" class="btn btn-primary" data-toggle="modal" data-target="#registrarse">Registrarse</a>
                         </div>
-
                     </div>
                 </div>
                 <div class="col-lg-12">
-
                     <p>Copyright &copy; Your Website 2014</p>
                 </div>
             </div>

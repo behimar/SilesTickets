@@ -14,12 +14,13 @@ class CreateEventsTable extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->engine = "InnoDB";
-            
+
             $table->increments('id');
             $table->string('titulo');
             $table->dateTime('fecha_event');
             $table->text('descripccion');
             $table->integer('numEntradas');
+            $table->string('path');
             $table->integer('user_id')->unsigned();
             $table->timestamps();
 
@@ -27,7 +28,7 @@ class CreateEventsTable extends Migration
                 ->references('id')->on('users')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            
+
         });
     }
 

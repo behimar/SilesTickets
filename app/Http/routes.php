@@ -48,7 +48,6 @@ Route::get('perfil/{id}',[
     'uses'  => 'ProfileController@show',
     'as'    => 'indexPerfil'
 ]);
-
 /**ADMINISTRADOR*/
 Route::get('users',[
     'uses'  => 'UsersAdminController@index',
@@ -80,34 +79,7 @@ Route::post('evento/localidades',[
     'uses'  => 'LocationController@store',
     'as'    => 'localidades'
 ]);
-Route::get('/sii',function () {
-    $user = \App\User::find(1);
-    return $user;
-});
-Route::get('/si',function (){
-    $event = \App\Event::find(1);
-        $locali = new \App\Location();
-        $locali->localidad = 'Recta';
-        $locali->cantidad = '5000';
-        $locali->precio = '80';
-    $event->location()->save($locali);
-        $locali = new \App\Location();
-        $locali->localidad = 'Curva Norte';
-        $locali->cantidad = '5000';
-        $locali->precio = '50';
-    $event->location()->save($locali);
-    return "registrado";
-    /*
-    $events = \App\Event::find(3)->location;
-    if ($events == null )
-    {
-        return "no";
-    }
-    return $events;
-    */
-    //$profile = \App\User::find(1)->Profile;
-    //return $profile;
-});
+
 
 Route::get('/wel', function () {
     return view('layouts.panel');
@@ -130,7 +102,44 @@ Route::get('sectores', function () {
 Route::get('entradas', function () {
     return view('vendedor.entradas');
 });
+
+/** pruebas! */
 Route::get('tt', function (){
-    $e = \App\Event::all();
-    return $e;
+    $e = \App\User::find(1);
+    if ($e->profile == null){
+        return "nuuul";
+    }
+    return dato;
 });
+Route::get('/si',function (){
+
+
+    $event = new \App\Event();
+    $event->titulo = "bol vs ti";
+    $event->fecha_event = "2016-06-22T18:00";
+    $event->descripccion = "asdfasdfasdf sssAaAAA";
+    $event->user_id     = "1";
+    $event->save();
+    $locali = new \App\Location();
+    $locali->localidad = 'Butaca';
+    $locali->cantidad = '1843';
+    $locali->precio = '300';
+    $event->location()->save($locali);
+    $locali = new \App\Location();
+    $locali->localidad = 'Curva Norte';
+    $locali->cantidad = '10379';
+    $locali->precio = '50';
+    $event->location()->save($locali);
+    return "registrado";
+    /*
+    $events = \App\Event::find(3)->location;
+    if ($events == null )
+    {
+        return "no";
+    }
+    return $events;
+    */
+    //$profile = \App\User::find(1)->Profile;
+    //return $profile;
+});
+
