@@ -88,6 +88,13 @@ Route::post('evento/localidades',[
     'as'    => 'localidades'
 ]);
 
+/** cliente*/
+Route::get('reservar/{id}',[
+    'uses'  => 'ReservationController@index',
+    'as'    => 'verPartido'
+]);
+
+
 
 Route::get('/wel', function () {
     return view('layouts.panel');

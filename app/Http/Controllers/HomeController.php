@@ -47,7 +47,7 @@ class HomeController extends Controller
             $events = DB::table('events')
                 ->orderBy('fecha_event', 'asc')
                 ->paginate(5);
-            return view('layouts.client',compact('events'));
+            return view('client.inicio',compact('events'));
         }
 
     }

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Event;
+use App\Location;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -14,9 +16,12 @@ class ReservationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $evento= Event::find($id);
+        $sectores = Event::find($id)->location;
+
+        return view('client.reserva',compact('evento','sectores'));
     }
 
     /**
