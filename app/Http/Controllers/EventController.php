@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
 class EventController extends Controller
@@ -19,7 +20,10 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        //$events = Event::all();
+        $events = DB::table('events')
+            ->orderBy('fecha_event', 'asc')
+            ->paginate(5);
 
         return view('admin.eventos',compact('events'));
     }

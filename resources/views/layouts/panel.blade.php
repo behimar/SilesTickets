@@ -102,7 +102,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{Auth::User()->name}} <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="{{route('indexPerfil',Auth::User()->id)}}"><i class="fa fa-fw fa-user"></i> Profile</a>
+                            <a href="{{route('editProfile',Auth::User()->id)}}"><i class="fa fa-fw fa-user"></i> Profile</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-fw fa-envelope"></i> Inbox</a>
@@ -137,6 +137,7 @@
                             <small>@yield('sub_title')</small>
                         </h1>
                         <ol class="breadcrumb">
+                            @include('flash::message')
                             <!--<li>
                                 <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
                             </li>

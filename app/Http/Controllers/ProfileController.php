@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Laracasts\Flash\Flash;
 
 class ProfileController extends Controller
 {
@@ -54,7 +55,7 @@ class ProfileController extends Controller
         $user = User::find($request['id']);
         
         Session::flash('message','Datos ingresados Correctamente');
-        return view('profile.perfil',compact('user','profile'));
+        return redirect()->action('HomeController@getIndex');
     }
 
     /**
@@ -91,7 +92,9 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id)->profile;
+        
+        return  view('profile.editarPerfil',compact('user'));
     }
 
     /**
@@ -103,7 +106,17 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id)->profile;
+        $user->carnet   = $request->carnet;
+        $user->nombre   = $request->nombre;
+        $user->apP      = $request->apP;
+        $user->apM      = $request->apM;
+        $user->telefono = $request->telefono;
+        $user->fechaNac = $request->fechaNac;
+        $user->save();
+        Flash::success('Tus datos personales han sido actualizados correctamente');
+        //return redirect()->action('HomeController@getIndex');
+        return view('profile.editarPerfil',compact('user'));
     }
 
     /**

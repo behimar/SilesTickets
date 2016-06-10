@@ -48,6 +48,14 @@ Route::get('perfil/{id}',[
     'uses'  => 'ProfileController@show',
     'as'    => 'indexPerfil'
 ]);
+Route::get('editar/{id}',[
+    'uses'  => 'ProfileController@edit',
+    'as'    => 'editProfile'
+]);
+Route::put('actualizar/{id}',[
+    'uses'  => 'ProfileController@update',
+    'as'    => 'updateProfile'
+]);
 /**ADMINISTRADOR*/
 Route::get('users',[
     'uses'  => 'UsersAdminController@index',
