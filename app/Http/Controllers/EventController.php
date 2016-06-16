@@ -10,6 +10,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+use Laracasts\Flash\Flash;
 
 class EventController extends Controller
 {
@@ -110,7 +111,9 @@ class EventController extends Controller
      */
     public function edit($id)
     {
-        //
+        $event = Event::find($id);
+        
+        return view('admin.editarEvento',compact('event'));
     }
 
     /**
@@ -122,7 +125,17 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //dd($request);
+        $event = Event::find($id);
+        $fechas = $request['fecha'];
+        $hora = $request['hora'];
+        $event->titulo          = $request->titulo;
+        $event->fecha_event     = $fechas. "T" . $hora;
+        $event->descripccion    = $request->descripccion;
+            
+        $event->save();
+        Flash::success('El evento ha sido actualizado exitosamente');
+        return redirect()->route('listEvents');
     }
 
     /**

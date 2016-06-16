@@ -21,7 +21,7 @@ class ReservationController extends Controller
         $evento= Event::find($id);
         $sectores = Event::find($id)->location;
 
-        return view('client.reserva',compact('evento','sectores'));
+        return view('client.partido',compact('evento', 'sectores'));
     }
 
     /**

@@ -1,5 +1,5 @@
 @extends('layouts.client')
-@section('cli')
+@section('client')
     @foreach($events as $event)
         <div class="row">
             <div class="jumbotron">

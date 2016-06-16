@@ -40,7 +40,7 @@ class LocationController extends Controller
      */
     public function store(Request $request)
     {
-        /**
+        /**ASI ES COMO UTILIZAN LAS RELACIONES
         $event = \App\Event::find(1);
         $locali = new \App\Location();
         $locali->localidad = 'Recta';
@@ -82,7 +82,9 @@ class LocationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $sector = Location::find($id);
+        
+        return view('');
     }
 
     /**

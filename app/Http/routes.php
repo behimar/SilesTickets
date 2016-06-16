@@ -78,6 +78,14 @@ Route::post('eventos',[
     'uses'  => 'EventController@store',
     'as'    => 'listEvents'
 ]);
+Route::get('editar-evento/{id}',[
+    'uses'  => 'EventController@edit',
+    'as'    => 'editEvent'
+]);
+Route::put('actualizar-evento/{id}',[
+    'uses'  => 'EventController@update',
+    'as'    => 'updateEvent'
+]);
 /*localidades */
 Route::get('evento/localidades',[
     'uses'  => 'LocationController@index',
@@ -86,6 +94,14 @@ Route::get('evento/localidades',[
 Route::post('evento/localidades',[
     'uses'  => 'LocationController@store',
     'as'    => 'localidades'
+]);
+Route::get('localidad/editar/{id}',[
+    'uses'  => 'LocationController@edit',
+    'as'    =>  'editLocation'
+]);
+Route::put('localidad/actualizar/{id}',[
+    'uses'  => 'LocationController@update',
+    'as'    => 'updateLocation'
 ]);
 
 /** cliente*/
@@ -157,4 +173,8 @@ Route::get('/si',function (){
     //$profile = \App\User::find(1)->Profile;
     //return $profile;
 });
+Route::get('dj',function (){
+    $ee = \App\Event::find(1);
 
+    return $ww = date('Y-m-d',strtotime($ee));
+});

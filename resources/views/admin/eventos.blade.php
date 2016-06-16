@@ -21,7 +21,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                         <button type="submit" class="btn btn-primary">Crear Evento</button>
-                    </div>
+                </div>
                     {{--   {!! Form::close() !!}  --}}
                     {</form>
             </div>
@@ -47,7 +47,7 @@
                     <td>{{$event->fecha_event}}</td>
                     <td>{{$event->descripccion}}</td>
                     <td>
-                        <a href="" class="btn btn-success">Actualizar</a>
+                        <a href="{{route('editEvent',$event->id)}}" class="btn btn-success">Actualizar</a>
                     </td>
                     <td>
                         <a href="" class="btn btn-danger">Eliminar</a>

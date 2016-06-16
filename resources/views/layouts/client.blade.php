@@ -130,7 +130,7 @@
         <div class="container">
             <br>
             <br>
-            @yield('cli')
+            @yield('client')
 
         </div>
     </div>
